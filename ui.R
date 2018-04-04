@@ -10,12 +10,24 @@ shinyUI(fluidPage(
       fileInput(inputId="datos", 
                 label="Seleccione los datos ", 
                 multiple = FALSE, accept = NULL, width = NULL,
-                buttonLabel = "Cargar", placeholder = "No hay base")
+                buttonLabel = "Cargar", placeholder = "No hay base"),
+      checkboxInput(inputId="nombres", 
+                    label="Nombres", 
+                    value=TRUE),
+      selectInput(inputId="separado",
+                  label="Separado por",
+                  choices=c(",", ".", " ", "  "),
+                  selected=","),
+      numericInput(inputId="omitir",
+                   label="Omitir",
+                   min=0,
+                   step=1,
+                   value="0")
     ),
     
-    # Show a plot of the generated distribution
     mainPanel(
-       #plotOutput("distPlot")
+      tableOutput("tabla")
     )
   )
 ))
+  
