@@ -26,7 +26,8 @@ shinyUI(fluidPage(
     ),
     
     mainPanel(
-      tableOutput("tabla")
+      tableOutput("tabla"),
+      plotOutput("g")
     )
   )
 ))
