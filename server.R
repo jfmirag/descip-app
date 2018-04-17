@@ -2,7 +2,7 @@
 library(shiny)
 
 shinyServer(function(input, output) {
-  #archivo<-0
+  #archivo<-NULL
   #datos<-0
    output$tabla <- renderTable({
       archivo<-input$datos
@@ -11,10 +11,13 @@ shinyServer(function(input, output) {
      
       datos<-read.table(archivo$datapath, header = input$nombres, 
                  sep = input$separado,skip = input$omitir)
+      archivo=datos
+      write.csv(datos, file="datos.csv")
       head(datos,5)
     })
-   output$g=renderPlot({
-     plot(datos)
-   })
+   #datos=read.table("datos.csv")
+   #output$g=renderPlot({
+  #   plot(archivo)
+  # })
    
 })
