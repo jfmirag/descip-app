@@ -1,5 +1,5 @@
 library(shiny)
-
+library(leaflet)
 
 shinyUI(
   navbarPage(
@@ -28,27 +28,27 @@ shinyUI(
                      value="0")
       ),
       mainPanel(
-        tableOutput("tabla"),
-        plotOutput("g")
+        "Cargar datos",
+        img(src="statistic.jpg",height = 300, width = 600)
       )
     ),
     navbarMenu(
       "Mapas",
       tabPanel(
-        "Mapa 2017"
-        #leafletOutput("mapa2017")
+        "Mapa 2017",
+        leafletOutput("mapa2017")
       ),
       tabPanel(
-        "Mapa 2016"
-        #leafletOutput("mapa2016")
+        "Mapa 2016",
+        leafletOutput("mapa2016")
       ),
       tabPanel(
-        "Mapa 2015"
-        #leafletOutput("mapa2015")
+        "Mapa 2015",
+        leafletOutput("mapa2015")
       ),
       tabPanel(
-        "Accidentalidad por Barrio 2017"
-        #leafletOutput("mapabarrios17")
+        "Accidentalidad por Barrio 2017",
+        leafletOutput("mapabarrios17")
       )      
     ),
     navbarMenu(
@@ -94,7 +94,7 @@ shinyUI(
           ),
           mainPanel(
             
-            #plotOutput("grafico1")
+            plotOutput("grafico1")
             
           )
         )        
@@ -124,7 +124,7 @@ shinyUI(
                         selected="2016")
           ),
           mainPanel(
-            #plotOutput("grafico2")
+            plotOutput("grafico2")
           )
         )        
       ),
@@ -148,4 +148,3 @@ shinyUI(
     )
   )
 )
-  
